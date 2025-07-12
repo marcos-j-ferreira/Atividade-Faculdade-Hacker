@@ -20,13 +20,13 @@ public class App
         TerminalUtils ter = new TerminalUtils();
 
 
-        ter.limparTerminal();
-        m1.brif();
-        esp.esperar(2);
-        ter.limparTerminal();
-        m1.dados();
-        esp.esperar(2);
-        ter.limparTerminal();
+        // ter.limparTerminal();
+        // m1.brif();
+        // esp.esperar(2);
+        // ter.limparTerminal();
+        // m1.dados();
+        // esp.esperar(2);
+        // ter.limparTerminal();
         m1.terminal();
         m1.puzzle01();
         System.out.println("  ");

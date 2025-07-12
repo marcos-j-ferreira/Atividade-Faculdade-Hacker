@@ -4,11 +4,13 @@ import com.marcos.hacker.utils.TerminalUtils;
 import java.io.IOException;
 
 import java.util.Scanner; 
+import java.util.Random;
+import java.util.Arrays;
 
 public class MissaoRede{
 
     private String ip = "192.168.34.12";
-    //private Scanner input = new Scanner(System.in);
+    private Scanner input = new Scanner(System.in);
 
     public void brif(){
         System.out.println("Relatório de Inteligência (B.R.I.F):");
@@ -23,7 +25,7 @@ public class MissaoRede{
         System.out.println("- ping");
         System.out.println("- nmap");
         System.out.println("- traceroute");
-        System.out.println("- whois");
+        //System.out.println("- whois");
         System.out.println("- verify-bin <IP>");
     }
 
@@ -84,7 +86,7 @@ public class MissaoRede{
             // Interface estática tipo terminal
 
             for(int i = 0; i < 10; i++){
-                System.out.println("orbis@brif:~$ █");
+                System.out.println("orbis@brif:~$ ");
                 Thread.sleep(500);
 
             }
@@ -101,21 +103,106 @@ public class MissaoRede{
         }
     }
 
+    public final static void nmap(){
+        System.out.println("192.168.1.1 - Online - Serviço: DNS\n 192.168.1.5 - Online - Serviço: DB\n 192.168.1.7 - Offline");
+    } 
+
+    // public final static void none(){
+    //     System.out.println("E: nenhum comando encontrado\n WARNIG: you to be desconc of network\n Falid desconect");
+    //     System.out.print("orbis@brif:~$");
+    // }
+
+    public final static void comandoInvalido() throws InterruptedException {
+        Random rand = new Random();
+        int option = rand.nextInt(3); // 0, 1 ou 2
+
+        System.out.println(); // espaço antes do erro
+
+        switch (option) {
+            case 0 -> {
+                System.out.println("E: comando não reconhecido...");
+                Thread.sleep(250);
+                System.out.println("attempting override...");
+                Thread.sleep(200);
+                System.out.println("override denied. permission missing.");
+                Thread.sleep(180);
+                System.out.println("system status: [degraded]");
+            }
+
+            case 1 -> {
+                System.out.println("WARNING: protocol mismatch");
+                Thread.sleep(180);
+                System.out.println("connection dropped.");
+                Thread.sleep(220);
+                System.out.println("attempting to re-route...");
+                Thread.sleep(250);
+                System.out.println("ERR:: route table not found.");
+            }
+
+            case 2 -> {
+                System.out.println("ALERT: corrupted input stream detected.");
+                Thread.sleep(200);
+                System.out.println("E: falha crítica no shell principal...");
+                Thread.sleep(250);
+                System.out.println("fallback shell engaged.");
+            }
+        }
+
+        Thread.sleep(150);
+        System.out.print("orbis@brif:~$ ");
+    }
+
     public final boolean puzzle01(){
 
-        Scanner input = new Scanner(System.in);
+        //Scanner input = new Scanner(System.in);
 
-        System.out.print("orbis@brif:~$ [Enter um comando]: ");
-        String comando = input.next();
+        // System.out.println("- traceroute");
+        // //System.out.println("- whois");
+        // System.out.println("- verify-bin <IP>");
 
-        System.out.println(comando);
 
-        if(comando == "marcos"){
-            System.out.println("Aprovado");
-            return true;
-        }else{
-            System.out.println("Recusado");
-            return false;
+
+        String[] comandos = {"NMPA 192.168.34.12", "PING 192.168.34.12", "TRACEROUTE 192.168.34.12", "VERIFY-BIN 192.168.34.12" };
+
+        boolean continuar = true;
+
+        while(continuar){
+
+            System.out.print("orbis@brif:~$ [Enter um comando]: ");
+            String comando = input.nextLine().toUpperCase();
+
+            int number = 0;
+
+            boolean existe = Arrays.stream(comandos)
+                                    .anyMatch(cmd -> cmd.equalsIgnoreCase(comando));
+
+            if (existe) {
+
+                for(int i = 0; i < 4; i++){
+                    if(comando.equals(comandos[i])){
+                        number = i + 1;
+                        break;
+                    }
+                }
+            }else {
+                try{
+                    comandoInvalido();
+                } catch ( InterruptedException e){
+                        e.printStackTrace();
+                    }
+                }
+
+            switch(number){
+                case 1 -> {
+                    nmap();
+                }
+                case 2 -> {
+                    System.out.println("foi");
+                }
+            }
+            
         }
+
+        return false;
     }
 }
