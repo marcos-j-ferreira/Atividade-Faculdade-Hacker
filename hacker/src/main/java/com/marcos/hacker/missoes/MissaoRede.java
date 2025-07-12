@@ -29,6 +29,7 @@ public class MissaoRede{
     }
 
     public String dados(){
+        //GET-CORE
 
         System.out.println("Ponto de partida: IP descoberto para início da investigação -> "+ ip);
 
@@ -36,8 +37,10 @@ public class MissaoRede{
         System.out.println("- ping");
         System.out.println("- nmap");
         System.out.println("- traceroute");
-        System.out.println("- whois");
+        //System.out.println("- whois");
         System.out.println("- verify-bin <IP>");
+        System.out.println("- get-core <IP>");
+
 
         String nome = "marcos";
 
@@ -108,7 +111,7 @@ public class MissaoRede{
         System.out.println("╠══════════════════════════════════╣");
         //System.out.println("║ IP:192.168.1.1  | Online  | DNS  ║");
         System.out.println("║ IP:192.168.1.5   | Online  | DB  ║");
-        System.out.println("║ IP: 192.168.1.7  | Offline | --- ║");
+        System.out.println("║ IP: 192.168.1.9  | Offline | --- ║");
         System.out.println("╚══════════════════════════════════╝");
     }
 
@@ -167,7 +170,7 @@ public class MissaoRede{
         System.out.println("\n\n╔════════════════════════════════════╗");
         System.out.println("║         ERRO NA COMUNICAÇÃO        ║");
         System.out.println("╠════════════════════════════════════╣");
-        System.out.printf ("║ IP: %-15s │ SEM RESPOSTA         ║%n", ip);
+        System.out.printf ("║ IP: %-15s │ SEM RESPOSTA           ║%n", ip);
         System.out.println("║ Motivo: serviço indisponível       ║");
         System.out.println("║ Ou: acesso negado pela rede        ║");
         System.out.println("╚════════════════════════════════════╝");
@@ -205,42 +208,44 @@ public class MissaoRede{
         System.out.println("Estabelecendo conexão segura...");
         Thread.sleep(600);
 
-        System.out.println("\n╔════════════════════════════════════════╗");
-        System.out.println("║      ⚠️  ACESSO RESTRITO DETECTADO        ║");
-        System.out.println("╠════════════════════════════════════════╣");
-        System.out.printf ("║ Comando: %-30s ║%n", comando);
-        System.out.printf ("║ Alvo: %-33s ║%n", ip);
+        System.out.println("\n╔═════════════════════════════════════════════╗");
+        System.out.println("║        ACESSO RESTRITO DETECTADO            ║");
+        System.out.println("╠═════════════════════════════════════════════╣");
+        System.out.printf ("║ Comando: %-30s      ║%n", comando);
+        System.out.printf ("║ Alvo: %-33s         ║%n", ip);
         System.out.println("║ Erro: Serviço não autorizado para esse host ║");
         System.out.println("║ Motivo: Política de segurança ativa         ║");
         System.out.println("║ Status: Conexão encerrada pelo host remoto  ║");
-        System.out.println("╚════════════════════════════════════════╝");
+        System.out.println("╚═════════════════════════════════════════════╝");
 
         Thread.sleep(400);
-        System.out.println("\n[LOG] 🔐 Tentativa registrada pelo firewall central.");
+        System.out.println("\n[LOG] Tentativa registrada pelo firewall central.");
         System.out.println("[INFO] Sugestão: tente outro comando ou IP autorizado.\n");
         System.out.print("orbis@brif:~$ ");
     }
 
     public static void exibirAjuda() throws InterruptedException {
-        System.out.println("\n╔════════════════════════════════════════════╗");
-        System.out.println("║         ≡ TERMINAL DE COMANDOS ATIVOS ≡     ║");
-        System.out.println("╠════════════════════════════════════════════╣");
+        System.out.println("\n╔════════════════════════════════════════════════════════╗");
+        System.out.println("║         ≡ TERMINAL DE COMANDOS ATIVOS ≡                ║");
+        System.out.println("╠════════════════════════════════════════════════════════╣");
         Thread.sleep(300);
         System.out.println("║ > ping               │ verifica status de um IP        ║");
+        Thread.sleep(300);
+        System.out.println("║ > get-core           │ coleta dados                    ║");
         Thread.sleep(300);
         System.out.println("║ > nmap               │ escaneia dispositivos na rede   ║");
         Thread.sleep(300);
         System.out.println("║ > traceroute         │ rastreia a rota até o destino   ║");
         Thread.sleep(300);
         System.out.println("║ > verify-bin <IP>    │ verifica integridade binária    ║");
-        System.out.println("╚════════════════════════════════════════════╝");
+        System.out.println("╚════════════════════════════════════════════════════════╝");
         Thread.sleep(500);
 
-        System.out.println("\n💡 DICA: tente executar os comandos acima em diferentes IPs.");
+        System.out.println("\n [DICA]: tente executar os comandos acima em diferentes IPs.");
         Thread.sleep(600);
-        System.out.println("🔍 Nem todos os hosts respondem igual. Alguns... escondem algo.");
+        System.out.println(" Nem todos os hosts respondem igual. Alguns... escondem algo.");
         Thread.sleep(800);
-        System.out.println("👤 LOG: Atividade do terminal está sendo monitorada...");
+        System.out.println("LOG: Atividade do terminal está sendo monitorada...");
         Thread.sleep(1000);
         System.out.print("\norbis@brif:~$ ");
     }
@@ -329,15 +334,15 @@ public class MissaoRede{
         Thread.sleep(600);
         System.out.println("\nFinalizando processo...");
         Thread.sleep(1000);
-        System.out.println("✔ Todos os arquivos extraídos com sucesso.");
+        System.out.println("[WARNING] Todos os arquivos extraídos com sucesso.");
         Thread.sleep(800);
-        System.out.println("⚠️  ATENÇÃO: Detecção de checksum alterado em segmentos críticos.");
+        System.out.println("[INFO] ATENÇÃO: Detecção de checksum alterado em segmentos críticos.");
         Thread.sleep(1000);
-        System.out.println("🔒 Sessão será encerrada pelo sistema remoto por segurança...\n");
+        System.out.println("[log] Sessão será encerrada pelo sistema remoto por segurança...\n");
         Thread.sleep(1500);
 
         System.out.println("╔════════════════════════════════════════════╗");
-        System.out.println("║       🔐 CONEXÃO TERMINADA PELO HOST        ║");
+        System.out.println("║        CONEXÃO TERMINADA PELO HOST         ║");
         System.out.println("╠════════════════════════════════════════════╣");
         System.out.println("║ IP...................: 10.42.0.254         ║");
         System.out.println("║ Motivo...............: Protocolo encerrado ║");
@@ -359,33 +364,33 @@ public class MissaoRede{
 
         System.out.println("\n\n╔════════════════════════════════════════════╗");
         Thread.sleep(100);
-        System.out.println("║                                            ║");
+        System.out.println("║                                                ║");
         Thread.sleep(100);
-        System.out.println("║      ████╗  █████╗ ███████╗███████╗██╗     ║");
+        System.out.println("║      ████╗  █████╗ ███████╗███████╗██╗         ║");
         Thread.sleep(100);
-        System.out.println("║     ██╔══██╗██╔══██╗╚══███╔╝██╔════╝██║     ║");
+        System.out.println("║     ██╔══██╗██╔══██╗╚══███╔╝██╔════╝██║        ║");
         Thread.sleep(100);
-        System.out.println("║     ██████╔╝███████║  ███╔╝ █████╗  ██║     ║");
+        System.out.println("║     ██████╔╝███████║  ███╔╝ █████╗  ██║        ║");
         Thread.sleep(100);
-        System.out.println("║     ██╔═══╝ ██╔══██║ ███╔╝  ██╔══╝  ██║     ║");
+        System.out.println("║     ██╔═══╝ ██╔══██║ ███╔╝  ██╔══╝  ██║        ║");
         Thread.sleep(100);
-        System.out.println("║     ██║     ██║  ██║███████╗███████╗███████╗║");
+        System.out.println("║     ██║     ██║  ██║███████╗███████╗███████╗   ║");
         Thread.sleep(100);
-        System.out.println("║     ╚═╝     ╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝║");
+        System.out.println("║     ╚═╝     ╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝   ║");
         Thread.sleep(100);
-        System.out.println("║                                            ║");
-        System.out.println("║         ✅ MISSÃO CONCLUÍDA COM SUCESSO       ║");
-        System.out.println("╠════════════════════════════════════════════╣");
-        System.out.println("║ Próximo nível desbloqueado: [REDACTED]     ║");
-        System.out.println("║ Registro salvo em: /root/orbis/relatos.log ║");
-        System.out.println("║ Nível de rastreamento: ⚠️ BAIXO              ║");
-        System.out.println("║ Código de sessão: 0x5F2C9A3D               ║");
-        System.out.println("╚════════════════════════════════════════════╝");
+        System.out.println("║                                                ║");
+        System.out.println("║         MISSÃO CONCLUÍDA COM SUCESSO           ║");
+        System.out.println("╠════════════════════════════════════════════════╣");
+        System.out.println("║ Próximo nível desbloqueado: [REDACTED]         ║");
+        System.out.println("║ Registro salvo em: /root/orbis/relatos.log     ║");
+        System.out.println("║ Nível de rastreamento:  BAIXO                  ║");
+        System.out.println("║ Código de sessão: 0x5F2C9A3D                   ║");
+        System.out.println("╚════════════════════════════════════════════════╝");
 
         Thread.sleep(1400);
-        System.out.println("\n👁️  Você foi observado. Você passou no teste.");
+        System.out.println("\n [!!!!] Você foi observado. Você passou no teste.");
         Thread.sleep(1200);
-        System.out.println("💡 Prepare-se. Há mais por trás do Orbis do que você imagina...");
+        System.out.println("@@@@ Prepare-se. Há mais por trás do Orbis do que você imagina...");
         Thread.sleep(1000);
 
         System.out.print("\norbis@brif:~$ ");
@@ -433,11 +438,11 @@ public class MissaoRede{
         }
 
         Thread.sleep(500);
-        System.out.println("\n⚠️  BUFFER OVERFLOW DETECTADO...");
+        System.out.println("\n [INFO] BUFFER OVERFLOW DETECTADO...");
         Thread.sleep(600);
-        System.out.println("💥 KERNEL PANIC — SISTEMA CRITICAMENTE INSTÁVEL");
+        System.out.println("[INFO] KERNEL PANIC — SISTEMA CRITICAMENTE INSTÁVEL");
         Thread.sleep(800);
-        System.out.println("🔒 INICIANDO PROTOCOLO DE CONTENÇÃO...\n");
+        System.out.println("[INFO] INICIANDO PROTOCOLO DE CONTENÇÃO...\n");
         Thread.sleep(1000);
         System.out.print("orbis@brif:~$ ");
     }
@@ -451,13 +456,132 @@ public class MissaoRede{
         return sb.toString();
     }
 
+    public static void comandoProibidoDetectado() throws InterruptedException {
+        System.out.println("> override-core --force");
+        Thread.sleep(800);
+        System.out.println("Executando comando não autorizado...");
+        Thread.sleep(900);
+        System.out.println("Tentando burlar camadas de segurança...");
+        Thread.sleep(1000);
+        System.out.println("...\n");
+        Thread.sleep(500);
+
+        // Começa o colapso visual
+        for (int i = 0; i < 6; i++) {
+            System.out.println("[INFO] ALERTA: SISTEMA INTRUSO DETECTADO!");
+            Thread.sleep(200);
+        }
+
+        Thread.sleep(500);
+        System.out.println("\n[INFO] VOCÊ FOI LOCALIZADO.");
+        Thread.sleep(1000);
+
+        System.out.println("\n[INJEÇÃO DE CÓDIGO EM CURSO...]");
+        Thread.sleep(500);
+
+        for (int i = 0; i < 30; i++) {
+            System.out.println(gerarIntrusao());
+            Thread.sleep(50);
+        }
+
+        Thread.sleep(700);
+        System.out.println("\n[INFO] ACESSO NEGADO.");
+        Thread.sleep(600);
+        System.out.println("[INFO] SEU TERMINAL FOI CONGELADO.");
+        Thread.sleep(700);
+        System.out.println("[INFO] TODOS OS SEUS PACOTES FORAM INTERCEPTADOS.");
+        Thread.sleep(800);
+
+        System.out.println("\n╔════════════════════════════════════════════╗");
+        System.out.println("║           MISSÃO FALHOU - DETECTADO        ║");
+        System.out.println("╠════════════════════════════════════════════╣");
+        System.out.println("║ Status.............: Identidade exposta    ║");
+        System.out.println("║ Logs capturados....: Sim                   ║");
+        System.out.println("║ Código de rastreio.: TRC-1F9A84            ║");
+        System.out.println("║ Medidas ativas.....: Contra-invasão        ║");
+        System.out.println("╚════════════════════════════════════════════╝");
+
+        Thread.sleep(1000);
+        System.out.println("\n[INFO] Você foi pego. Orbis viu tudo. A missão termina aqui.");
+
+        System.out.print("\n[ TERMINAL ENCERRADO PERMANENTEMENTE ]\n");
+    }
+
+// Mensagens aleatórias como se fossem um sistema invadindo
+    private static String gerarIntrusao() {
+        String[] ataques = {
+            ">> Reescrevendo ACLs...",
+            ">> Escalando privilégios...",
+            ">> Anexando rastreamento ao PID 1424...",
+            ">> Varrendo porta 22, 443, 8080...",
+            ">> Dumping memória RAM...",
+            ">> Forçando reboot falso...",
+            ">> Injecting kernel module [ghost_mod]",
+            ">> Criptografando stdout...",
+            ">> Redirecionando logs para IP master...",
+            ">> hash_match: FOUND (0xFA3C01)",
+            ">> Root hook ativo.",
+            ">> stdout > /dev/null [TAMPADO]",
+            ">> Loop de watchdog desativado.",
+            ">> Signal TRAP - não autorizado",
+            ">> /bin/bash: comando interceptado",
+            ">>  Secure zone breach confirmed",
+            ">> Logging keystrokes..."
+        };
+        return ataques[new Random().nextInt(ataques.length)];
+    }
+
+    public static void servicoIndisponivel(String ip, String comando) throws InterruptedException {
+        System.out.printf("> %s %s%n", comando, ip);
+        Thread.sleep(700);
+
+        System.out.println("\nTentando estabelecer conexão com o host...");
+        Thread.sleep(900);
+        System.out.println("Enviando pacotes...");
+        Thread.sleep(800);
+        System.out.println("Aguardando resposta do serviço...");
+        Thread.sleep(1200);
+
+        System.out.println("\n╔══════════════════════════════════════════════╗");
+        System.out.println("║            SERVIÇO INDISPONÍVEL              ║");
+        System.out.println("╠══════════════════════════════════════════════╣");
+        System.out.printf("║ Host.............: %-25s ║%n", ip);
+        System.out.printf("║ Comando..........: %-25s ║%n", comando);
+        System.out.println("║ Código...........: 503 (Service Unavailable)  ║");
+        System.out.println("║ Status...........: Host ativo, serviço offline║");
+        System.out.println("║ Recomendação.....: Tente novamente mais tarde ║");
+        System.out.println("╚═══════════════════════════════════════════════╝");
+
+        Thread.sleep(1200);
+        System.out.println("\n  A comunicação com o serviço foi recusada.");
+        Thread.sleep(800);
+        System.out.println(" Diagnóstico: Nenhuma porta escutando requisições neste endpoint.");
+        Thread.sleep(1000);
+
+        System.out.print("\norbis@brif:~$ ");
+    }
+
+
+
     public final boolean puzzle01() throws InterruptedException {
 
-        String[] comandos = {"HELP","NMAP 192.168.34.12", "PING 192.168.34.12", "TRACEROUTE 192.168.34.12", "VERIFY-BIN 192.168.34.12", "PING 192.168.1.5", "PING 192.168.1.7", "TRACEROUTE 192.168.1.5","VERIFY-BIN 192.168.1.7", "GET-CORE 10.42.0.254"};
+        String[] comandos = {"HELP","NMAP 192.168.34.12", "PING 192.168.34.12", "TRACEROUTE 192.168.34.12", "VERIFY-BIN 192.168.34.12", "PING 192.168.1.5", "PING 192.168.1.9", "TRACEROUTE 192.168.1.5","VERIFY-BIN 192.168.1.7", "GET-CORE 10.42.0.254", "NMAP 192.168.1.5", "VERIFY-BIN 192.168.1.5", "NMAP 192.168.1.9", "TRACEROUTE 192.168.1.9", "VERIFY-BIN 192.168.1.9", "PING 192.168.1.7", "NMAP 192.168.1.7", "TRACEROUTE 192.168.1.7", "NMAP 10.42.0.254", "PING 10.42.0.254", "VERIFY-BIN 10.42.0.254", "TRACEROUTE 10.42.0.254"};//14
+
+        //"VERIFY-BIN 192.168.1.9" == 14
 
         boolean continuar = true;
 
+        int v = 0;
+
         while(continuar){
+
+            if( v == 12){
+                comandoProibidoDetectado();
+                gerarIntrusao();
+                System.out.println("\n=========== você falhou ==============\n");
+                return false;
+            }
+            System.out.printf("orbis@brif:~$ [WARNING] número de tentativas até ser rastreado: %d/12 \n", v);
 
             System.out.print("orbis@brif:~$ [Enter um comando]: ");
             String comando = input.nextLine().toUpperCase();
@@ -476,17 +600,8 @@ public class MissaoRede{
                         break;
                     }
                 }
-            }else {
-                try{
-                    comandoInvalido();
-                    number = 20;;
-                } catch ( InterruptedException e){
-                        e.printStackTrace();
-                    }
-                }
 
-            switch(number)
-            {
+                switch(number){
                 case 0 -> {
                     exibirAjuda();
                 }
@@ -506,7 +621,7 @@ public class MissaoRede{
                     pingSimulado("192.168.1.5");
                 }
                 case 6 -> {
-                    pingInvalido("192.168.1.7");
+                    pingInvalido("192.168.1.9");
                 }
                 case 7 -> {
                     analisadorDeRotas();
@@ -519,8 +634,94 @@ public class MissaoRede{
                     explosaoDeLogsAvancado();
                     missaoConcluida();
                 }
+                case 10 -> {
+                    comandoRestrito("NMAP", "192.168.1.5");
+                }
+                case 11 -> {
+                    comandoRestrito("VERIFY-BIN", "192.168.1.5");
+                }
+                case 12 -> {
+                    comandoRestrito("NMAP","192.168.1.9");
+                }
+                case 13 -> {
+                    servicoIndisponivel("192.168.1.9", "TRACEROUTE");// alterar 
+                }
+                case 14 -> {
+                    servicoIndisponivel("192.168.1.9", "VERIFY-BIN");// alterar 
+                }
+                default -> {
+                    comandoProibidoDetectado();
+                    gerarIntrusao();
+                }
             }
+
+            }else {
+                try{
+                    comandoInvalido();
+                    number = 20;;
+                } catch ( InterruptedException e){
+                        e.printStackTrace();
+                    }
+                }
+
+            // switch(number){
+            //     case 0 -> {
+            //         exibirAjuda();
+            //     }
+            //     case 1 -> {
+            //         nmap();
+            //     }
+            //     case 2 -> {
+            //         pingSimulado(ip);
+            //     }
+            //     case 3 -> {
+            //         comandoRestrito("TRACEROUTE", "192.168.34.12");
+            //     }
+            //     case 4 -> {
+            //         comandoRestrito("VERIFY-BIN", "192.168.34.12");
+            //     }
+            //     case 5 -> {
+            //         pingSimulado("192.168.1.5");
+            //     }
+            //     case 6 -> {
+            //         pingInvalido("192.168.1.9");
+            //     }
+            //     case 7 -> {
+            //         analisadorDeRotas();
+            //     }
+            //     case 8 -> {
+            //         revelarIpMaster();
+            //     }
+            //     case 9 -> {
+            //         executarExtracaoFinal();
+            //         explosaoDeLogsAvancado();
+            //         missaoConcluida();
+            //     }
+            //     case 10 -> {
+            //         comandoRestrito("NMAP", "192.168.1.5");
+            //     }
+            //     case 11 -> {
+            //         comandoRestrito("VERIFY-BIN", "192.168.1.5");
+            //     }
+            //     case 12 -> {
+            //         comandoRestrito("NMAP","192.168.1.9");
+            //     }
+            //     case 13 -> {
+            //         servicoIndisponivel("192.168.1.9", "TRACEROUTE");// alterar 
+            //     }
+            //     case 14 -> {
+            //         servicoIndisponivel("192.168.1.9", "VERIFY-BIN");// alterar 
+            //     }
+            //     default -> {
+            //         comandoProibidoDetectado();
+            //         gerarIntrusao();
+            //     }
+            // }
+
+            v++;
+
         }
+
         return false;
     }
 }
