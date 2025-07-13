@@ -229,6 +229,8 @@ public class MissaoRede{
         System.out.println("║         ≡ TERMINAL DE COMANDOS ATIVOS ≡                ║");
         System.out.println("╠════════════════════════════════════════════════════════╣");
         Thread.sleep(300);
+        System.out.println("║ > IP                 │    192.168.34.12                ║");
+        Thread.sleep(300);
         System.out.println("║ > ping               │ verifica status de um IP        ║");
         Thread.sleep(300);
         System.out.println("║ > get-core           │ coleta dados                    ║");
@@ -575,13 +577,13 @@ public class MissaoRede{
 
         while(continuar){
 
-            if( v == 12){
+            if( v == 20){
                 comandoProibidoDetectado();
                 gerarIntrusao();
                 System.out.println("\n=========== você falhou ==============\n");
                 return false;
             }
-            System.out.printf("orbis@brif:~$ [WARNING] número de tentativas até ser rastreado: %d/12 \n", v);
+            System.out.printf("orbis@brif:~$ [WARNING] número de tentativas até ser rastreado: %d/20 \n", v);
 
             System.out.print("orbis@brif:~$ [Enter um comando]: ");
             String comando = input.nextLine().toUpperCase();
@@ -633,6 +635,7 @@ public class MissaoRede{
                     executarExtracaoFinal();
                     explosaoDeLogsAvancado();
                     missaoConcluida();
+                    return true;
                 }
                 case 10 -> {
                     comandoRestrito("NMAP", "192.168.1.5");
@@ -654,7 +657,6 @@ public class MissaoRede{
                     gerarIntrusao();
                 }
             }
-
             }else {
                 try{
                     comandoInvalido();
@@ -663,65 +665,8 @@ public class MissaoRede{
                         e.printStackTrace();
                     }
                 }
-
-            // switch(number){
-            //     case 0 -> {
-            //         exibirAjuda();
-            //     }
-            //     case 1 -> {
-            //         nmap();
-            //     }
-            //     case 2 -> {
-            //         pingSimulado(ip);
-            //     }
-            //     case 3 -> {
-            //         comandoRestrito("TRACEROUTE", "192.168.34.12");
-            //     }
-            //     case 4 -> {
-            //         comandoRestrito("VERIFY-BIN", "192.168.34.12");
-            //     }
-            //     case 5 -> {
-            //         pingSimulado("192.168.1.5");
-            //     }
-            //     case 6 -> {
-            //         pingInvalido("192.168.1.9");
-            //     }
-            //     case 7 -> {
-            //         analisadorDeRotas();
-            //     }
-            //     case 8 -> {
-            //         revelarIpMaster();
-            //     }
-            //     case 9 -> {
-            //         executarExtracaoFinal();
-            //         explosaoDeLogsAvancado();
-            //         missaoConcluida();
-            //     }
-            //     case 10 -> {
-            //         comandoRestrito("NMAP", "192.168.1.5");
-            //     }
-            //     case 11 -> {
-            //         comandoRestrito("VERIFY-BIN", "192.168.1.5");
-            //     }
-            //     case 12 -> {
-            //         comandoRestrito("NMAP","192.168.1.9");
-            //     }
-            //     case 13 -> {
-            //         servicoIndisponivel("192.168.1.9", "TRACEROUTE");// alterar 
-            //     }
-            //     case 14 -> {
-            //         servicoIndisponivel("192.168.1.9", "VERIFY-BIN");// alterar 
-            //     }
-            //     default -> {
-            //         comandoProibidoDetectado();
-            //         gerarIntrusao();
-            //     }
-            // }
-
             v++;
-
         }
-
         return false;
     }
 }
